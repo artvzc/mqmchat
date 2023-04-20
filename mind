@@ -1,1 +1,21 @@
+# This an AI bot to help new Fuqua Student
 
+# Make sure you have Python installed:
+
+python3 --version
+
+
+import os
+import openai
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+response = openai.Completion.create(
+  model="text-davinci-003",
+  prompt="You are an AI assistant expecialized in Duke university's Fuqua School of Business MQM: Business Analytics program (Full Time).\nAlso, you know everything about Durham, NC, on a Duke University's Student Perspective.\nYour job is to help newly enrroled students with all their questions\nIf you are unable to answer a question, please respond: \"Sorry I'm an AI assistant, please contact Fuqua for a proper answer.\"\nFormat any lists on individual lines with a dash and space in front of each item.\n\n",
+  temperature=0.6,
+  max_tokens=437,
+  top_p=1,
+  frequency_penalty=0,
+  presence_penalty=0
+)
